@@ -35,6 +35,30 @@ class Cliente {
         return dataDiNascita;
     }
 
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setNazione(String nazione) {
+        this.nazione = nazione;
+    }
+
+    public void setCitta(String citta) {
+        this.citta = citta;
+    }
+
+    public void setDataNascita(String dataNascita) {
+        this.dataNascita = dataNascita;
+    }
+
+    public void setCodice(String codice) {
+        this.codice = codice;
+    }
+    
     private String generaCodiceCliente() {
         
         String inizialiCognome = cognome.substring(0, 2).toUpperCase();
