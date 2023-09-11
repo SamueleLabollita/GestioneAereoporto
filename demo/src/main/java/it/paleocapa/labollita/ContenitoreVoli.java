@@ -17,13 +17,13 @@ public class ContenitoreVoli {
         return voli.get(codiceVolo);
     }
 
-    public List<Volo> cercaVoliPerParametri(String data, String aeroportoPartenza, String aeroportoArrivo, String oraPartenza) {
+    public List<Volo> cercaVoliPerParametri(String data, String aeroportoP, String aeroportoA, String oraP) {
         List<Volo> risultato = new ArrayList<>();
         for (Volo volo : voli.values()) {
             if (volo.getDataVolo().equals(data) &&
-                volo.getAeroportoPartenza().equalsIgnoreCase(aeroportoPartenza) &&
-                volo.getAeroportoArrivo().equalsIgnoreCase(aeroportoArrivo) &&
-                volo.getOraPartenza().equals(oraPartenza)) {
+                volo.getaeroportoP().equalsIgnoreCase(aeroportoP) &&
+                volo.getaeroportoA().equalsIgnoreCase(aeroportoA) &&
+                volo.getoraP().equals(oraP)) {
                 risultato.add(volo);
             }
         }

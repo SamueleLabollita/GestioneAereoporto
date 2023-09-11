@@ -2,21 +2,21 @@ package it.paleocapa.labollita;
 
 class Volo {
     private String codiceVolo;
-    private String aeroportoPartenza;
-    private String aeroportoArrivo;
+    private String aeroportoP;
+    private String aeroportoA;
     private String dataVolo;
-    private String oraPartenza;
-    private String oraArrivo;
+    private String oraP;
+    private String oraA;
     private int numeroPosti;
     private double costoVolo;
 
-    public Volo(String codiceVolo, String aeroportoPartenza, String aeroportoArrivo, String dataVolo, String oraPartenza, String oraArrivo, int numeroPosti, double costoVolo) {
+    public Volo(String codiceVolo, String aeroportoP, String aeroportoA, String dataVolo, String oraP, String oraA, int numeroPosti, double costoVolo) {
         this.codiceVolo = codiceVolo;
-        this.aeroportoPartenza = aeroportoPartenza;
-        this.aeroportoArrivo = aeroportoArrivo;
+        this.aeroportoP = aeroportoP;
+        this.aeroportoA = aeroportoA;
         this.dataVolo = dataVolo;
-        this.oraPartenza = oraPartenza;
-        this.oraArrivo = oraArrivo;
+        this.oraP = oraP;
+        this.oraA = oraA;
         this.numeroPosti = numeroPosti;
         this.costoVolo = costoVolo;
     }
@@ -25,24 +25,24 @@ class Volo {
         return codiceVolo;
     }
 
-    public String getAeroportoPartenza() {
-        return aeroportoPartenza;
+    public String getaeroportoP() {
+        return aeroportoP;
     }
 
-    public String getAeroportoArrivo() {
-        return aeroportoArrivo;
+    public String getaeroportoA() {
+        return aeroportoA;
     }
 
     public String getDataVolo() {
         return dataVolo;
     }
 
-    public String getOraPartenza() {
-        return oraPartenza;
+    public String getoraP() {
+        return oraP;
     }
 
-    public String getOraArrivo() {
-        return oraArrivo;
+    public String getoraA() {
+        return oraA;
     }
 
     public int getNumeroPosti() {
@@ -53,24 +53,24 @@ class Volo {
         return costoVolo;
     }
 
-    public void setAeroportoPartenza(String aeroportoPartenza) {
-        this.aeroportoPartenza = aeroportoPartenza;
+    public void setaeroportoP(String aeroportoP) {
+        this.aeroportoP = aeroportoP;
     }
 
-    public void setAeroportoArrivo(String aeroportoArrivo) {
-        this.aeroportoArrivo = aeroportoArrivo;
+    public void setaeroportoA(String aeroportoA) {
+        this.aeroportoA = aeroportoA;
     }
 
     public void setDataVolo(String dataVolo) {
         this.dataVolo = dataVolo;
     }
 
-    public void setOraPartenza(String oraPartenza) {
-        this.oraPartenza = oraPartenza;
+    public void setoraP(String oraP) {
+        this.oraP = oraP;
     }
 
-    public void setOraArrivo(String oraArrivo) {
-        this.oraArrivo = oraArrivo;
+    public void setoraA(String oraA) {
+        this.oraA = oraA;
     }
 
     public void setNumeroPosti(int numeroPosti) {
@@ -81,12 +81,12 @@ class Volo {
         this.costoVolo = costoVolo;
     }
     
-    public void modificaDati(String aeroportoPartenza, String aeroportoArrivo, String dataVolo, String oraPartenza, String oraArrivo, int numeroPosti, double costoVolo) {
-        this.aeroportoPartenza = aeroportoPartenza;
-        this.aeroportoArrivo = aeroportoArrivo;
+    public void modificaDati(String aeroportoP, String aeroportoA, String dataVolo, String oraP, String oraA, int numeroPosti, double costoVolo) {
+        this.aeroportoP = aeroportoP;
+        this.aeroportoA = aeroportoA;
         this.dataVolo = dataVolo;
-        this.oraPartenza = oraPartenza;
-        this.oraArrivo = oraArrivo;
+        this.oraP = oraP;
+        this.oraA = oraA;
         this.numeroPosti = numeroPosti;
         this.costoVolo = costoVolo;
     }

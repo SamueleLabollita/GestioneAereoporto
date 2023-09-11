@@ -2,45 +2,45 @@ package it.paleocapa.labollita;
 class Cliente {
     private String cognome;
     private String nome;
-    private String nazioneDiNascita;
-    private String cittaDiNascita;
-    private String dataDiNascita;
+    private String nazioneNascita;
+    private String cittaNascita;
+    private String dataNascita;
     private String codiceCliente;
 
-    public Cliente(String cognome, String nome, String nazioneDiNascita, String cittaDiNascita, String dataDiNascita) {
+    public Cliente(String cognome, String nome, String nazioneNascita, String cittaNascita, String dataNascita) {
         this.cognome = cognome;
         this.nome = nome;
-        this.nazioneDiNascita = nazioneDiNascita;
-        this.cittaDiNascita = cittaDiNascita;
-        this.dataDiNascita = dataDiNascita;
-    }
-
-    public String getCognome() {
-        return cognome;
+        this.nazioneNascita = nazioneNascita;
+        this.cittaNascita = cittaNascita;
+        this.dataNascita = dataNascita;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getNazioneDiNascita() {
-        return nazioneDiNascita;
+    public String getCognome() {
+        return cognome;
     }
 
-    public String getCittaDiNascita() {
-        return cittaDiNascita;
+    public String getnazioneNascita() {
+        return nazioneNascita;
     }
 
-    public String getDataDiNascita() {
-        return dataDiNascita;
+    public String getcittaNascita() {
+        return cittaNascita;
     }
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
+    public String getdataNascita() {
+        return dataNascita;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
     }
 
     public void setNazione(String nazione) {
@@ -61,11 +61,11 @@ class Cliente {
     
     private String generaCodiceCliente() {
         
-        String inizialiCognome = cognome.substring(0, 2).toUpperCase();
         String inizialiNome = nome.substring(0, 2).toUpperCase();
+        String inizialiCognome = cognome.substring(0, 2).toUpperCase();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        String dataNascitaCod = sdf.substring(6, 7);
+        String sdf = new SimpleDateFormat("ddMMyyyy").format(dataNascita);
+        String dataNascitaCod = sdf.substring(0, 2);
 
         Random random = new Random();
         int numeroCasuale = random.nextInt(900) + 100;
@@ -75,11 +75,11 @@ class Cliente {
         return codiceCliente;
     }
 
-    public void modificaDati(String cognome, String nome, String nazioneDiNascita, String cittaDiNascita, String dataDiNascita) {
+    public void modificaDati(String cognome, String nome, String nazioneNascita, String cittaNascita, String dataNascita) {
         this.cognome = cognome;
         this.nome = nome;
-        this.nazioneDiNascita = nazioneDiNascita;
-        this.cittaDiNascita = cittaDiNascita;
-        this.dataDiNascita = dataDiNascita;
+        this.nazioneNascita = nazioneNascita;
+        this.cittaNascita = cittaNascita;
+        this.dataNascita = dataNascita;
     }
 }

@@ -10,15 +10,17 @@ public class Prenotazione {
         this.codiceVolo = codiceVolo;
         this.bagagli = new LinkedList<>();
     }
+
     public void aggiungiPrenotazione(Prenotazione prenotazione) {
         prenotazioni.add(prenotazione);
     }
+
     public void rimuoviPrenotazioneCodiceClienteECodiceVolo(String codiceVolo, String codiceCliente) {
-        Iterator<Prenotazione> iterator = prenotazioni.iterator();
-        while (iterator.hasNext()) {
-            Prenotazione prenotazione = iterator.next();
+        Iterator<Prenotazione> i = prenotazioni.iterator();
+        while (i.hasNext()) {
+            Prenotazione prenotazione = i.next();
             if (prenotazione.getCodiceVolo().equals(codiceVolo) && prenotazione.getCodiceCliente().equals(codiceCliente)) {
-                iterator.remove();
+                i.remove();
                 break;
             }
         }
@@ -52,14 +54,7 @@ public class Prenotazione {
         return bagagli;
     }
 
-    @Override
-    public String toString() {
-        return "Prenotazione{" +
-                "codiceCliente='" + codiceCliente + '\'' +
-                ", codiceVolo='" + codiceVolo + '\'' +
-                ", bagagli=" + bagagli +
-                '}';
-    }
+    
     public String getCodiceCliente() {
         return codiceCliente;
     }
@@ -78,5 +73,5 @@ public class Prenotazione {
         public double getPeso() {
             return peso;
         }
-
+    }
 }
