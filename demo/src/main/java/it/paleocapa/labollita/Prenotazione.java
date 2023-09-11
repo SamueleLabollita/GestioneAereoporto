@@ -1,4 +1,7 @@
 package it.paleocapa.labollita;
+
+import java.util.*;
+
 public class Prenotazione {
     public String codiceCliente;
     public String codiceVolo;

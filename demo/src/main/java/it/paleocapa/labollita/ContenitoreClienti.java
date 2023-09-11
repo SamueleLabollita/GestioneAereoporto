@@ -1,5 +1,6 @@
 package it.paleocapa.labollita;
-import java.util.HashMap;
+import java.io.*;
+import java.util.*;
 
 public class ContenitoreClienti {
     private HashMap<String, Cliente> clienti = new HashMap<>();

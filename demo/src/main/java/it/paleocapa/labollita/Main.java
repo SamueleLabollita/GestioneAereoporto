@@ -1,4 +1,8 @@
 package it.paleocapa.labollita;
+
+import java.text.SimpleDateFormat;
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
         Cliente cliente = new Cliente("Labollita", "Samuele", "Italia", "Bergamo", "11/03/2005", "C001");
@@ -6,8 +10,8 @@ public class Main {
 
         cliente.setCognome("Loda");
         cliente.setNome("Matilde");
-        cliente.setNazione("Italia");
-        cliente.setCitta("Brescia");
+        cliente.setnazioneNascita("Italia");
+        cliente.setcittaNascita("Brescia");
         cliente.setDataNascita("30/07/2006");
 
         volo.setaeroportoP("Bergamo");
@@ -21,4 +25,24 @@ public class Main {
         System.out.println("Dati del cliente: " + cliente.getNome() + " " + cliente.getCognome());
         System.out.println("Dati del volo: " + volo.getCodiceVolo() + " " + volo.getaeroportoP() + " - " + volo.getaeroportoA());
     }
+
+    /*public static String generaCodiceCliente(Cliente cliente) {
+        
+        String nome = cliente.getNome();
+        String cognome = cliente.getCognome();
+        String dataNascita = cliente.getdataNascita();
+
+        String inizialiNome = nome.substring(0, 2).toUpperCase();
+        String inizialiCognome = cognome.substring(0, 2).toUpperCase();
+
+        String sdf = new SimpleDateFormat("ddMMyyyy").format(dataNascita);
+        String dataNascitaCod = sdf.substring(0, 2);
+
+        Random random = new Random();
+        int numeroCasuale = random.nextInt(900) + 100;
+
+        String codiceCliente = inizialiCognome + inizialiNome + dataNascitaCod  + numeroCasuale;
+
+        return codiceCliente;
+    }*/
 }

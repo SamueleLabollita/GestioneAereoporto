@@ -1,4 +1,8 @@
 package it.paleocapa.labollita;
+
+import java.text.SimpleDateFormat;
+import java.util.Random;
+
 class Cliente {
     private String cognome;
     private String nome;
@@ -7,12 +11,13 @@ class Cliente {
     private String dataNascita;
     private String codiceCliente;
 
-    public Cliente(String cognome, String nome, String nazioneNascita, String cittaNascita, String dataNascita) {
+    public Cliente(String cognome, String nome, String nazioneNascita, String cittaNascita, String dataNascita, String codiceCliente) {
         this.cognome = cognome;
         this.nome = nome;
         this.nazioneNascita = nazioneNascita;
         this.cittaNascita = cittaNascita;
         this.dataNascita = dataNascita;
+        this.codiceCliente = codiceCliente;
     }
 
     public String getNome() {
@@ -35,6 +40,10 @@ class Cliente {
         return dataNascita;
     }
 
+    public String getCodiceCliente() {
+        return codiceCliente;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -43,23 +52,23 @@ class Cliente {
         this.cognome = cognome;
     }
 
-    public void setNazione(String nazione) {
-        this.nazione = nazione;
+    public void setnazioneNascita(String nazioneNascita) {
+        this.nazioneNascita = nazioneNascita;
     }
 
-    public void setCitta(String citta) {
-        this.citta = citta;
+    public void setcittaNascita(String cittaNascita) {
+        this.cittaNascita = cittaNascita;
     }
 
     public void setDataNascita(String dataNascita) {
         this.dataNascita = dataNascita;
     }
 
-    public void setCodice(String codice) {
-        this.codice = codice;
+    public void setcodiceCliente(String codiceCliente) {
+        this.codiceCliente = codiceCliente;
     }
     
-    private String generaCodiceCliente() {
+    /*public String generaCodiceCliente() {
         
         String inizialiNome = nome.substring(0, 2).toUpperCase();
         String inizialiCognome = cognome.substring(0, 2).toUpperCase();
@@ -73,13 +82,14 @@ class Cliente {
         codiceCliente = inizialiCognome + inizialiNome + dataNascitaCod  + numeroCasuale;
 
         return codiceCliente;
-    }
+    }*/
 
-    public void modificaDati(String cognome, String nome, String nazioneNascita, String cittaNascita, String dataNascita) {
+    public void modificaDati(String cognome, String nome, String nazioneNascita, String cittaNascita, String dataNascita, String codiceCliente) {
         this.cognome = cognome;
         this.nome = nome;
         this.nazioneNascita = nazioneNascita;
         this.cittaNascita = cittaNascita;
         this.dataNascita = dataNascita;
+        this.codiceCliente = codiceCliente;
     }
 }

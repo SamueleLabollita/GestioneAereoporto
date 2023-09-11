@@ -1,6 +1,8 @@
 package it.paleocapa.labollita;
 
-import java.util.HashMap;
+import java.io.*;
+import java.util.*;
+import java.util.List;
 
 public class ContenitoreVoli {
     private HashMap<String, Volo> voli = new HashMap<>();
