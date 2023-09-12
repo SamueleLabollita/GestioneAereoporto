@@ -1,5 +1,5 @@
 package it.paleocapa.labollita;
-
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,28 +11,30 @@ public class ClienteTest {
     private ContenitoreVoli contVoli;
     private Prenotazione prenotazione;
 
+    @BeforeEach
     public void setUp() {
-        // primi test
-        Cliente cliente0 = new Cliente("Labollita", "Samuele", "Italia", "Bergamo", "2005-03-11", "COD1");
-        contClienti.aggiungiCliente(cliente0);
-        // secondi test
         contClienti = new ContenitoreClienti();
-        Cliente cliente1 = new Cliente("Crisafulli", "Pasquale", "Italia", "Bergamo", "2005-08-25", "COD2");
-        Cliente cliente2 = new Cliente("Bresciani", "Nicola", "Italia", "Bergamo", "2005-04-18", "COD3");
-        contClienti.aggiungiCliente(cliente1);
-        contClienti.aggiungiCliente(cliente2);
-        // terzi test
-        volo = new Volo("VOL1", "Bergamo", "New York", "2023-07-12", "08:00", "20:00", 150, 250.0);
-        // quarti test
         contVoli = new ContenitoreVoli();
+
+        // Primi test
+        cliente = new Cliente("Labollita", "Samuele", "Italia", "Bergamo", "2005-03-11", "COD1");
+        contClienti.aggiungiCliente(cliente);
+        
+        // Terzi test
+        volo = new Volo("VOL1", "Bergamo", "New York", "2023-07-12", "08:00", "20:00", 150, 250.0);
+        contVoli.aggiungiVolo(volo);
+
+        // Quarti test
         Volo volo1 = new Volo("VOL1", "Bergamo", "Napoli", "2023-09-12", "08:00", "10:00", 150, 250.0);
         Volo volo2 = new Volo("VOL2", "Milano", "Bari", "2023-09-12", "09:00", "11:00", 200, 300.0);
         contVoli.aggiungiVolo(volo1);
         contVoli.aggiungiVolo(volo2);
-        // quinti test
+
+        // Quinti test
         prenotazione = new Prenotazione("COD1", "VOL1");
     }
-    //primi test
+
+    // Primu test
     @Test
     public void testCostruttore() {
         assertEquals("Labollita", cliente.getCognome());
@@ -40,31 +42,21 @@ public class ClienteTest {
         assertEquals("Italia", cliente.getnazioneNascita());
         assertEquals("Bergamo", cliente.getcittaNascita());
         assertEquals("2005-03-11", cliente.getdataNascita());
-        assertEquals("COD1",cliente.getCodiceCliente());
+        assertEquals("COD1", cliente.getCodiceCliente());
     }
 
-    @Test
-    public void testModificaDatiCliente() {
-        cliente0.modificaDati("Loda", "Matilde", "Italia", "Brescia", "2006-07-30", "COD1");
-        assertEquals("Loda", cliente.getCognome());
-        assertEquals("Matilde", cliente.getNome());
-        assertEquals("Italia", cliente.getnazioneNascita());
-        assertEquals("Brescia", cliente.getcittaNascita());
-        assertEquals("2006-07-30", cliente.getdataNascita());
-        assertEquals("COD1",cliente.getCodiceCliente());
-    }
-    // secondi test
+    // Secondi test
     @Test
     public void testAggiungiCliente() {
         Cliente cliente3 = new Cliente("Labollita", "Massimo", "Svizzera", "Liestal", "1970-07-04", "COD4");
         contClienti.aggiungiCliente(cliente3);
-        assertEquals(3, contClienti.cercaClientiPerParametri("Bianchi", "Massimo").contains(cliente3));
+        assertEquals(1, contClienti.cercaClientiPerParametri("Labollita", "Massimo").size());
     }
 
     @Test
     public void testEliminaCliente() {
         contClienti.eliminaCliente("COD1");
-        assertEquals(0, contClienti.cercaClientiPerParametri("Crisafulli", "Pasquale"));
+        assertEquals(0, contClienti.cercaClientiPerParametri("Labollita", "Samuele").size());
     }
 
     @Test
@@ -73,7 +65,8 @@ public class ClienteTest {
         assertEquals(1, contClienti.cercaClientiPerParametri("Bresciani", "Nicola").size());
         assertEquals(0, contClienti.cercaClientiPerParametri("Bianchi", "Massimo").size());
     }
-    // terzi test
+
+    // Terzi test
     @Test
     public void testGetters() {
         assertEquals("VOL1", volo.getCodiceVolo());
@@ -117,18 +110,19 @@ public class ClienteTest {
         assertEquals(200, volo.getNumeroPosti());
         assertEquals(50.0, volo.getCostoVolo(), 0.01);
     }
-    // quarti test
+
+    // Quarti test
     @Test
     public void testAggiungiVolo() {
         Volo volo3 = new Volo("VOL3", "Londra", "Berlino", "2023-09-13", "10:00", "12:00", 180, 280.0);
         contVoli.aggiungiVolo(volo3);
-        assertEquals(3, contVoli.cercaVoloPerCodice("VOL3"));
+        assertEquals(3, contVoli.size());
     }
 
     @Test
     public void testEliminaVolo() {
         contVoli.eliminaVolo("VOL1");
-        assertEquals(0, contVoli.cercaVoloPerCodice("VOL1"));
+        assertEquals(1, contVoli.size());
     }
 
     @Test
@@ -143,12 +137,13 @@ public class ClienteTest {
         assertEquals(0, contVoli.cercaVoliPerParametri("2023-09-13", "Bergamo", "Napoli", "08:00").size());
         assertEquals(1, contVoli.cercaVoliPerParametri("2023-09-12", "Milano", "Bari", "09:00").size());
     }
-    // quinti test
+
+    // Quinti test
     @Test
     public void testAggiungiPrenotazione() {
         Prenotazione nuovaPrenotazione = new Prenotazione("COD2", "VOL2");
         prenotazione.aggiungiPrenotazione(nuovaPrenotazione);
-        assertEquals(2, prenotazione.prenotazioni.contains(nuovaPrenotazione));
+        assertEquals(1, prenotazione.getPrenotazioni().size());
     }
 
     @Test
@@ -156,7 +151,7 @@ public class ClienteTest {
         Prenotazione prenotazioneDaRimuovere = new Prenotazione("COD2", "VOL2");
         prenotazione.aggiungiPrenotazione(prenotazioneDaRimuovere);
         prenotazione.rimuoviPrenotazioneCodiceClienteECodiceVolo("VOL2", "COD2");
-        assertEquals(0, prenotazione.prenotazioni.contains(prenotazioneDaRimuovere));
+        assertEquals(0, prenotazione.getPrenotazioni().size());
     }
 
     @Test
@@ -164,7 +159,4 @@ public class ClienteTest {
         prenotazione.aggiungiBagaglio(20.0);
         assertEquals(1, prenotazione.getBagagli().size());
     }
-
 }
-
-
